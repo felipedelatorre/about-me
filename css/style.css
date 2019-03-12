@@ -1,0 +1,41 @@
+header {
+    text-align: center;
+    padding: 25px
+}
+h1 {
+    font-display: arial;
+    font-size: 50px;
+}
+
+strong {
+    font-weight: bold;
+}
+
+nav {
+    background-color: #444;
+    width: 75%;
+    height: 45px;
+    text-align: center;
+    margin: 0% 10% 0% 10%;
+}
+
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    float: left;
+    padding: 20px 10px 10px 10px;
+    background-color: #17b0cf;
+    
+}
+
+
+
+article {
+    margin: 10px 50px 10px 50px;
+}
+
+button {
+    margin: 10px 50px 10px 50px; 
+}
