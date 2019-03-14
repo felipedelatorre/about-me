@@ -1,35 +1,84 @@
 'use strict'
 
-function answerValidation(answer) {
-    if ((answer === 'YES') || (answer === 'Y')) {
-        answer = 'Yes';
-    } else if ((answer === 'NO') || (answer === 'N')) {
-        answer = 'No';
-    } else {
-        alert('this is not a valid answer');
+function getRandomInt(min, max) {
+    min = Math.ceil(0);
+    max = Math.floor(9);
+    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
     }
-    return answer;
+var score = 0;
+
+alert('Wecome to the Guessing Game. This is the 1st part of a 3 part game. Please only answer with Yes or No');
+
+// GAME 1
+
+var questions = ['Is my name Felipe?', 'Do I have a brother and a sister?', 'Do I like the cold?', 'Is my favorite food mexican?', 'Did I go to school at COCC?']
+var answers = [];
+var key = ['Yes', 'No', 'No', 'Yes', 'Yes'];
+
+for (var i = 0; i < questions.length; i++) {
+  var answersPreValidation = (prompt(questions[i]).toUpperCase());
+  if (answersPreValidation === 'YES' || answersPreValidation === 'Y') {
+    answersPreValidation = 'Yes';
+    answers.push(answersPreValidation)
+  } else if (answersPreValidation === 'NO' || answersPreValidation === 'N') {
+    answersPreValidation = 'No';
+    answers.push(answersPreValidation)
+  } else {
+      alert('This is not a valid input')
+      i -= 1;
+  }
 }
 
+// Calculate current score
 
-function takeQuiz() {
-    var answer1 = prompt('Did I graduate from OSU-Corvallis? \nYes(y) or No(n)?').toUpperCase();
-    answer1 = answerValidation(answer1);
-    console.log('Your answer was: ' + answer1 + '\nThe correct answer was No');
-
-    var answer2 = prompt('Bend is located in the south of Oregon? \nYes(y) or No(n)?').toUpperCase();
-    answer2 = answerValidation(answer2);
-    console.log('Your answer was: ' + answer2 + '\nThe correct answer was No');
-
-    var answer3 = prompt('Do I like to spend most my time explore the outdoors? \nYes(y) or No(n)?').toUpperCase();
-    answer3 = answerValidation(answer3);
-    console.log('Your answer was: ' + answer3 + '\nThe correct answer was No');
-
-    var answer4 = prompt('Is Pho Viet one of my favorite restaurants? \nYes(y) or No(n)?').toUpperCase();
-    answer4 = answerValidation(answer4);
-    console.log('Your answer was: ' + answer4 + '\nThe correct answer was Yes');
-
-    var answer5 = prompt('Do I plan to travel the world? \nYes(y) or No(n)?').toUpperCase();
-    answer5 = answerValidation(answer5);
-    console.log('Your answer was: ' + answer5 + '\nThe correct answer was Yes');
+for (var i = 0; i < questions.length; i++) {
+    if (answers[i] === key[i]) {
+        score++;
+    }
 }
+alert('Your current score is ' + score);
+
+// GAME 2
+
+alert('Welcome to the 2nd part of the game. You only have 4 tries. Guess what number I am thinking of');
+
+var randomNumber = getRandomInt();
+var randomStringNumber = randomNumber.toString();
+var tries = 4; 
+for (var i = 0; i < 4; i++) {
+    var guessedNumber = prompt('Guess the number');
+    if (guessedNumber === randomStringNumber) {
+        alert('Nice!!!');
+        score++;
+        break;
+    } else {
+        if (guessedNumber > randomNumber) {
+            alert('Your number is too high');
+        } else {
+            alert('Your number is too low');
+        }
+        tries--;
+        alert('You have ' + tries + ' try(ies) left');
+    }
+}
+
+alert('Your current score is ' + score);
+
+// Game 3
+// alert('Congrats you made it to the last part of the game. For your last task you will have to guess the make of car that I have owned. You have 6 tries. You only have to guess one.')
+
+// var carOwned = ['HONDA', 'DODGE']
+// tries = 6;
+
+// for (var i = 0; i < 6; i++) {
+//     var guessedCar = prompt('Guess the car make').toUpperCase;
+//     if (guessedCar === carOwned.forEach(element){return element;}); {
+
+//     }
+// }
+
+
+console.log(score);
+console.log(questions);
+console.log(answers);
+console.log(key);
